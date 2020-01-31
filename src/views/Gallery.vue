@@ -26,7 +26,6 @@ export default {
   created: function() {
     axios
       .get("/api/memes")
-      // .get("https://rocky-spire-54064.herokuapp.com/api/memes")
       .then(response => {
         this.memes = response.data;
         console.log(this.memes);
