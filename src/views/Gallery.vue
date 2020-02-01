@@ -6,6 +6,7 @@
         <h2 class="top">{{ meme.topText }}</h2>
         <h2 class="bottom">{{ meme.bottomText }}</h2>
       </div>
+      <router-link style="font-size: 24px" :to="{name: 'edit', params: {meme}}">Edit</router-link>
     </div>
   </div>
 </template>
