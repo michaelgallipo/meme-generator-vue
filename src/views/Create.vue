@@ -24,6 +24,10 @@
 <script>
 const axios = require("axios");
 export default {
+  props: ["meme"],
+  components: {
+    MemeImage
+  },
   data: function() {
     return {
       error: "",

@@ -1,11 +1,12 @@
 <template>
   <div class="gallery">
     <div v-for="meme in memes">
-      <div class="meme">
+      <!-- <div class="meme">
         <img :src="meme.memeUrl" alt="../assets/hippo.jpg" />
         <h2 class="top">{{ meme.topText }}</h2>
         <h2 class="bottom">{{ meme.bottomText }}</h2>
-      </div>
+      </div>-->
+      <MemeImage v-bind:meme="{...meme}" />
       <router-link style="font-size: 24px" :to="{name: 'edit', params: {meme}}">Edit</router-link>
     </div>
   </div>
@@ -16,8 +17,13 @@
 </style>
 
 <script>
+import MemeImage from "@/components/MemeImage.vue";
 const axios = require("axios");
 export default {
+  props: ["meme"],
+  components: {
+    MemeImage
+  },
   data: function() {
     return {
       memes: [],
