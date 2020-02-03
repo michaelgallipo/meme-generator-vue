@@ -2,26 +2,18 @@
 	<div class="create">
 		<form class="meme-form">
 			<input v-model="meme.topText" placeholder="top text" />
-
 			<input v-model="meme.bottomText" placeholder="bottom Text" />
-			<!-- <input v-model="meme.topText" ref="topText" placeholder="top text" />
-
-			<input
-				v-model="meme.bottomText"
-				ref="bottomText"
-				placeholder="bottom text"
-			/> -->
 
 			<button v-on:click="generate">New Meme</button>
 			<button v-on:click="save">Save</button>
 		</form>
 
-		<div class="meme">
+		<!-- <div class="meme">
 			<img :src="this.meme.memeUrl" alt />
 			<h2 class="top">{{ this.meme.topText }}</h2>
 			<h2 class="bottom">{{ this.meme.bottomText }}</h2>
-		</div>
-		<!-- <MemeImage v-bind:meme="{ ...this.meme }" /> -->
+		</div> -->
+		<MemeImage v-bind:meme="{ ...this.meme }" />
 	</div>
 </template>
 
@@ -30,24 +22,16 @@
 </style>
 
 <script>
-// import MemeImage from "@/components/MemeImage.vue";
+import MemeImage from "@/components/MemeImage.vue";
 const axios = require("axios");
 export default {
 	// props: ["meme"],
-	// components: {
-	// 	MemeImage
-	// },
-	watch: {
-		meme: function(newVal, oldVal) {
-			this.topText = newVal.topText;
-			this.bottomText = newVal.bottomText;
-			this.memeUrl = newVal.memeUrl;
-		}
+	components: {
+		MemeImage
 	},
 	data: function() {
 		return {
 			error: "",
-			// memeKey: 101,
 			allMemeImages: [],
 			meme: {
 				topText: "",
